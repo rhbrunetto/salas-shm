@@ -1,0 +1,45 @@
+{
+  "name": "Room",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "password": {
+      "type": "string"
+    },
+    "players": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "ownerId": {
+      "type": "number",
+      "required": true
+    },
+    "n": {
+      "type": "number",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "WAITING FOR PLAYERS"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "invites": {
+      "type": "hasMany",
+      "model": "Invite",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true,
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Invite",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "token": {
+      "type": "string",
+      "required": true,
+      "defaultFn": "uuid"
+    },
+    "used": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "room": {
+      "type": "belongsTo",
+      "model": "Room",
+      "foreignKey": "",
+      "options": {
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

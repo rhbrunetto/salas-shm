@@ -1,0 +1,16 @@
+[
+    {
+        "ownerId": 1,
+        "n": 4
+    },
+    {
+        "ownerId": 2,
+        "n": 4,
+        "password": "P@s$w0rD"
+    },
+    {
+        "ownerId": 1,
+        "n": 4,
+        "players": 2
+    }
+]
