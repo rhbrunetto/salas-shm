@@ -16,7 +16,7 @@
     },
     "ownerId": {
       "type": "number",
-      "required": true
+      "required": false
     },
     "n": {
       "type": "number",
@@ -41,5 +41,6 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {},
+  "hidden": ["password"]
 }
