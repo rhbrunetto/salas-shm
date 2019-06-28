@@ -208,4 +208,34 @@ module.exports = function(Room) {
             }
         });
 
+    Room.makeInvite = (id, cb) => {
+        Room.findById(id).then((room) => {
+            if (room == null)    
+                throw buildError("Room not found", 404);
+            return room;
+        })
+        .then((room) => hasLeft(room))
+        .then((room) => cb(null, room))
+        .catch((err) => cb(err));
+    };
+
+    Room.remoteMethod('makeInvite',
+        {
+            accepts: [
+                {
+                    arg: 'id',
+                    type: 'number',
+                    required: true
+                }
+            ],
+            returns: {
+                type: 'Room',
+                root: true
+            },
+            http: {
+                path: '/:id/makeInvite',
+                verb: 'post'
+            }
+        });
+
 };
