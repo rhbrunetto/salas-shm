@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -37,10 +38,24 @@
   },
   "Room": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "join": true,
+          "leave": true,
+          "makeInvite": true,
+          "changeStatus": true,
+          "auto": true,
+          "create": true,
+          "find": true
+        }
+      }
+    }
   },
   "Invite": {
     "dataSource": "db",
-    "public": true
+    "public": false
   }
 }

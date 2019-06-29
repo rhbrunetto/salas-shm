@@ -214,8 +214,8 @@ module.exports = function(Room) {
                 throw buildError("Room not found", 404);
             return room;
         })
-        .then((room) => hasLeft(room))
-        .then((room) => cb(null, room))
+        .then((room) => room.invites.create({}))
+        .then((invite) => cb(null, invite))
         .catch((err) => cb(err));
     };
 
@@ -229,7 +229,7 @@ module.exports = function(Room) {
                 }
             ],
             returns: {
-                type: 'Room',
+                type: 'Invite',
                 root: true
             },
             http: {
